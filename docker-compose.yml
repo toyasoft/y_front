@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  www:
+    volumes:
+      - .:/workspace:delegated
+      - node_modules_volume:/workspace/node_modules:delegated
+      - ~/.ssh:/root/.ssh
+    ports:
+      - "7000:7000"
+    image: node:16
+    networks:
+      - y-node-network
+volumes:
+  node_modules_volume:
+
+networks:
+  y-node-network:
+    external: true
