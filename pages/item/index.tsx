@@ -1,6 +1,7 @@
 import { QueryRenderer, graphql, useLazyLoadQuery } from "react-relay";
 import { NextPage } from "next";
 import { initEnvironment } from "lib/RelayEnvironment";
+import OrderCreate from "components/OrderCreate";
 
 const ItemIndexPage: NextPage = () => {
   const environment = initEnvironment({});
@@ -17,6 +18,7 @@ const ItemIndexPage: NextPage = () => {
             name
             point
             username
+            ...OrderCreate_item
           }
         }
       `}
@@ -33,7 +35,8 @@ const ItemIndexPage: NextPage = () => {
                     <ul>
                       <li>{item.name}</li>
                       <li>{item.point}</li>
-                      <button type="button">購入する</button>
+                      <OrderCreate item={item} />
+                     
                     </ul>
                   </div>
                 ))}
