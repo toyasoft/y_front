@@ -9,7 +9,6 @@ const SignupPage: NextPage = () => {
       createUser(input: $input) {
         user {
           email
-          name
         }
       }
     }
@@ -20,7 +19,6 @@ const SignupPage: NextPage = () => {
     initialValues: {
       email: "",
       password: "",
-      name: "",
     },
 
     onSubmit: async (values) => {
@@ -29,10 +27,11 @@ const SignupPage: NextPage = () => {
           input: {
             email: values.email,
             password: values.password,
-            name: values.name,
           },
         },
-        onCompleted() {},
+        onCompleted(data) {
+          console.log(data);
+        },
         onError(err: any) {
           console.log(err);
         },
@@ -63,15 +62,7 @@ const SignupPage: NextPage = () => {
               value={formik.values.password}
             />
           </div>
-          <div>
-            <label>ユーザー名</label>
-            <input
-              type="text"
-              name="name"
-              onChange={formik.handleChange}
-              value={formik.values.name}
-            />
-          </div>
+
           <button type="submit">登録</button>
         </form>
       </div>

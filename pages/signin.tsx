@@ -1,15 +1,18 @@
 import { useFormik } from "formik";
 import { NextPage } from "next";
 import { graphql, useMutation } from "react-relay";
+import Cookies from "js-cookie";
+import { useRouter } from "next/router";
 
 const SigninPage: NextPage = () => {
+  const router = useRouter();
   const [commit, isInFlight] = useMutation(graphql`
     mutation signinMutation($input: SigninInput!) {
       signin(input: $input) {
         user {
           email
-          name
         }
+        userToken
       }
     }
   `);
@@ -29,7 +32,10 @@ const SigninPage: NextPage = () => {
             password: values.password,
           },
         },
-        onCompleted() {},
+        onCompleted(data) {
+          Cookies.set("userToken", data.signin.userToken);
+          router.push("/user");
+        },
         onError(err: any) {
           console.log(err);
         },

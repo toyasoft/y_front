@@ -1,18 +1,18 @@
 import { graphql, useMutation } from "react-relay";
 import { NextPage } from "next";
 import { useFormik } from "formik";
+import { useRouter } from "next/router";
 
 const ItemNewPage: NextPage = () => {
+  const router = useRouter();
   const [commit, isInFlight] = useMutation(graphql`
     mutation newItemMutation($input: CreateItemInput!) {
       createItem(input: $input) {
         item {
           id
           name
-          price
+          point
           username
-          image
-          description
         }
       }
     }
@@ -22,9 +22,7 @@ const ItemNewPage: NextPage = () => {
     enableReinitialize: true,
     initialValues: {
       name: "",
-      price: "",
-      image: "",
-      description: "",
+      point: "",
     },
 
     onSubmit: async (values) => {
@@ -32,12 +30,13 @@ const ItemNewPage: NextPage = () => {
         variables: {
           input: {
             name: values.name,
-            price: values.price,
-            image: values.image,
-            description: values.description,
+            point: Number(values.point),
           },
         },
-        onCompleted() {},
+        onCompleted(data) {
+          router.push("/user");
+          console.log(data);
+        },
         onError(err: any) {
           console.log(err);
         },
@@ -63,28 +62,12 @@ const ItemNewPage: NextPage = () => {
             <label>価格</label>
             <input
               type="text"
-              name="price"
+              name="point"
               onChange={formik.handleChange}
-              value={formik.values.price}
+              value={formik.values.point}
             />
           </div>
-          <div>
-            <label>画像</label>
-            <input
-              type="text"
-              name="image"
-              onChange={formik.handleChange}
-              value={formik.values.image}
-            />
-          </div>
-          <div>
-            <label>説明文</label>
-            <textarea
-              name="description"
-              onChange={formik.handleChange}
-              value={formik.values.description}
-            />
-          </div>
+
           <button type="submit">登録</button>
         </form>
       </div>

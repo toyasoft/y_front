@@ -12,9 +12,7 @@ const ItemUpdate: React.FC<Props> = (props) => {
       fragment ItemUpdate_item on Item {
         id
         name
-        price
-        image
-        description
+        point
       }
     `,
     props.item
@@ -26,10 +24,8 @@ const ItemUpdate: React.FC<Props> = (props) => {
         item {
           id
           name
-          price
+          point
           username
-          image
-          description
         }
       }
     }
@@ -37,20 +33,18 @@ const ItemUpdate: React.FC<Props> = (props) => {
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
-      name: item.name,
-      price: item.price,
-      image: item.image,
-      description: item.description,
+      id: item?.id,
+      name: item?.name,
+      point: item?.point,
     },
 
     onSubmit: async (values) => {
       commit({
         variables: {
           input: {
+            id: values.id,
             name: values.name,
-            price: values.price,
-            image: values.image,
-            description: values.description,
+            point: values.point,
           },
         },
         onCompleted() {},
@@ -76,28 +70,12 @@ const ItemUpdate: React.FC<Props> = (props) => {
           <label>価格</label>
           <input
             type="text"
-            name="price"
+            name="point"
             onChange={formik.handleChange}
-            value={formik.values.price}
+            value={formik.values.point}
           />
         </div>
-        <div>
-          <label>画像</label>
-          <input
-            type="text"
-            name="image"
-            onChange={formik.handleChange}
-            value={formik.values.image}
-          />
-        </div>
-        <div>
-          <label>説明文</label>
-          <textarea
-            name="description"
-            onChange={formik.handleChange}
-            value={formik.values.description}
-          />
-        </div>
+
         <button type="submit">登録</button>
       </form>
     </div>

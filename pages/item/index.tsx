@@ -15,9 +15,8 @@ const ItemIndexPage: NextPage = () => {
           items {
             id
             name
-            price
+            point
             username
-            image
           }
         }
       `}
@@ -33,9 +32,8 @@ const ItemIndexPage: NextPage = () => {
                   <div key={item.id}>
                     <ul>
                       <li>{item.name}</li>
-                      <li>{item.price}</li>
-                      <li>{item.image}</li>
-                      <li>{item.username}</li>
+                      <li>{item.point}</li>
+                      <button type="button">購入する</button>
                     </ul>
                   </div>
                 ))}

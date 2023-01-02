@@ -1,5 +1,7 @@
 import { useFormik } from "formik";
+import { useRouter } from "next/router";
 import item from "pages/item";
+import React from "react";
 import { graphql, useMutation, useFragment, QueryRenderer } from "react-relay";
 import { ItemDelete_item$key } from "__generated__/ItemDelete_item.graphql";
 import { ItemUpdate_item$key } from "__generated__/ItemUpdate_item.graphql";
@@ -9,6 +11,7 @@ type Props = {
 };
 
 const ItemDelete: React.FC<Props> = (props) => {
+  const router = useRouter();
   const item = useFragment(
     graphql`
       fragment ItemDelete_item on Item {
@@ -21,9 +24,7 @@ const ItemDelete: React.FC<Props> = (props) => {
   const [commit, isInFlight] = useMutation(graphql`
     mutation ItemDeleteMutation($input: DeleteItemInput!) {
       deleteItem(input: $input) {
-        item {
-          id
-        }
+        deletedItemId
       }
     }
   `);
@@ -38,7 +39,10 @@ const ItemDelete: React.FC<Props> = (props) => {
               id: item.id,
             },
           },
-          onCompleted() {},
+          onCompleted(data) {
+            router.reload();
+            console.log(data);
+          },
           onError(err: any) {
             console.log(err);
           },

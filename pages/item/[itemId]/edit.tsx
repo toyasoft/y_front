@@ -3,15 +3,17 @@ import { NextPage } from "next";
 import { useFormik } from "formik";
 import { initEnvironment } from "lib/RelayEnvironment";
 import ItemUpdate from "components/ItemUpdate";
+import { useRouter } from "next/router";
 
 const ItemEditPage: NextPage = () => {
+  const router = useRouter();
   const environment = initEnvironment({});
 
   return (
     <QueryRenderer
       environment={environment}
       variables={{
-        id: 1,
+        id: router.query.itemId ?? "",
       }}
       query={graphql`
         query editItemQuery($id: ID!) {
@@ -24,7 +26,7 @@ const ItemEditPage: NextPage = () => {
         return (
           <div>
             <h1>商品編集</h1>
-            <ItemUpdate item={props?.item} />
+            {props && <ItemUpdate item={props?.item} />}
           </div>
         );
       }}
