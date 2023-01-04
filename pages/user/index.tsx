@@ -11,12 +11,10 @@ const UserIndexPage: NextPage = () => {
   return (
     <QueryRenderer
       environment={environment}
-      variables={{
-        id: 1,
-      }}
+      variables={{}}
       query={graphql`
-        query userIndexQuery($id: ID!) {
-          user(id: $id) {
+        query userIndexQuery {
+          currentUser {
             email
             id
             items {
@@ -33,26 +31,26 @@ const UserIndexPage: NextPage = () => {
           <div>
             <h1>マイページ</h1>
             <ul>
-        <li>
-          <Link href="/signup">ユーザー登録</Link>
-        </li>
-        <li>
-          <Link href="/signin">ログイン</Link>
-        </li>
-        <li>
-          <Link href="/signout">ログアウト</Link>
-        </li>
-        <li>
-          <Link href="/user">マイページ</Link>
-        </li>
-        <li>
-          <Link href="/item">商品一覧</Link>
-        </li>
+              <li>
+                <Link href="/signup">ユーザー登録</Link>
+              </li>
+              <li>
+                <Link href="/signin">ログイン</Link>
+              </li>
+              <li>
+                <Link href="/signout">ログアウト</Link>
+              </li>
+              <li>
+                <Link href="/user">マイページ</Link>
+              </li>
+              <li>
+                <Link href="/item">商品一覧</Link>
+              </li>
 
-        <li>
-          <Link href="/order">売買履歴</Link>
-        </li>
-      </ul>
+              <li>
+                <Link href="/order">売買履歴</Link>
+              </li>
+            </ul>
             <ul>
               <li>
                 <Link href="/item/new">商品登録</Link>
@@ -60,7 +58,7 @@ const UserIndexPage: NextPage = () => {
             </ul>
             <h2>出品商品</h2>
             <div>
-              {props?.user?.items?.map((item) => (
+              {props?.currentUser?.items?.map((item) => (
                 <div key={item.id}>
                   <ul>
                     <li>{item.name}</li>

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<7ff1e6de1f6f06480bbe8a8e00f38ed9>>
+ * @generated SignedSource<<5e52f4917a8687b7bda52d6446fc17b5>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -12,10 +12,14 @@ import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type itemIndexQuery$variables = {};
 export type itemIndexQuery$data = {
+  readonly currentUser: {
+    readonly id: string;
+  };
   readonly items: ReadonlyArray<{
     readonly id: string;
     readonly name: string;
     readonly point: number;
+    readonly userId: string;
     readonly username: string | null;
     readonly " $fragmentSpreads": FragmentRefs<"OrderCreate_item">;
   }> | null;
@@ -53,6 +57,25 @@ v3 = {
   "kind": "ScalarField",
   "name": "username",
   "storageKey": null
+},
+v4 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "userId",
+  "storageKey": null
+},
+v5 = {
+  "alias": null,
+  "args": null,
+  "concreteType": "User",
+  "kind": "LinkedField",
+  "name": "currentUser",
+  "plural": false,
+  "selections": [
+    (v0/*: any*/)
+  ],
+  "storageKey": null
 };
 return {
   "fragment": {
@@ -73,6 +96,7 @@ return {
           (v1/*: any*/),
           (v2/*: any*/),
           (v3/*: any*/),
+          (v4/*: any*/),
           {
             "args": null,
             "kind": "FragmentSpread",
@@ -80,7 +104,8 @@ return {
           }
         ],
         "storageKey": null
-      }
+      },
+      (v5/*: any*/)
     ],
     "type": "Query",
     "abstractKey": null
@@ -102,23 +127,25 @@ return {
           (v0/*: any*/),
           (v1/*: any*/),
           (v2/*: any*/),
-          (v3/*: any*/)
+          (v3/*: any*/),
+          (v4/*: any*/)
         ],
         "storageKey": null
-      }
+      },
+      (v5/*: any*/)
     ]
   },
   "params": {
-    "cacheID": "3aa9dd78adc40048597d86618bbd51df",
+    "cacheID": "d3aa23811fd2944b347a1813d0ef437e",
     "id": null,
     "metadata": {},
     "name": "itemIndexQuery",
     "operationKind": "query",
-    "text": "query itemIndexQuery {\n  items {\n    id\n    name\n    point\n    username\n    ...OrderCreate_item\n  }\n}\n\nfragment OrderCreate_item on Item {\n  id\n}\n"
+    "text": "query itemIndexQuery {\n  items {\n    id\n    name\n    point\n    username\n    userId\n    ...OrderCreate_item\n  }\n  currentUser {\n    id\n  }\n}\n\nfragment OrderCreate_item on Item {\n  id\n}\n"
   }
 };
 })();
 
-(node as any).hash = "e40adaa6f939863b2b0438ddccb6a212";
+(node as any).hash = "b2e8d97920b44137a52a4a32bed62d04";
 
 export default node;

@@ -18,7 +18,11 @@ const ItemIndexPage: NextPage = () => {
             name
             point
             username
+            userId
             ...OrderCreate_item
+          }
+          currentUser {
+            id
           }
         }
       `}
@@ -35,8 +39,9 @@ const ItemIndexPage: NextPage = () => {
                     <ul>
                       <li>{item.name}</li>
                       <li>{item.point}</li>
-                      <OrderCreate item={item} />
-                     
+                      {props.currentUser.id !== item.userId && (
+                        <OrderCreate item={item} />
+                      )}
                     </ul>
                   </div>
                 ))}

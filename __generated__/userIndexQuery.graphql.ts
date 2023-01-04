@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<6bab1ed4de12161ee839078908f22779>>
+ * @generated SignedSource<<533d63ff42cf38a8d877379744d5a28a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,11 +10,9 @@
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
-export type userIndexQuery$variables = {
-  id: string;
-};
+export type userIndexQuery$variables = {};
 export type userIndexQuery$data = {
-  readonly user: {
+  readonly currentUser: {
     readonly email: string;
     readonly id: string;
     readonly items: ReadonlyArray<{
@@ -31,42 +29,28 @@ export type userIndexQuery = {
 };
 
 const node: ConcreteRequest = (function(){
-var v0 = [
-  {
-    "defaultValue": null,
-    "kind": "LocalArgument",
-    "name": "id"
-  }
-],
-v1 = [
-  {
-    "kind": "Variable",
-    "name": "id",
-    "variableName": "id"
-  }
-],
-v2 = {
+var v0 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "email",
   "storageKey": null
 },
-v3 = {
+v1 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v4 = {
+v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "name",
   "storageKey": null
 },
-v5 = {
+v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -75,21 +59,21 @@ v5 = {
 };
 return {
   "fragment": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
     "name": "userIndexQuery",
     "selections": [
       {
         "alias": null,
-        "args": (v1/*: any*/),
+        "args": null,
         "concreteType": "User",
         "kind": "LinkedField",
-        "name": "user",
+        "name": "currentUser",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
-          (v3/*: any*/),
+          (v0/*: any*/),
+          (v1/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -98,9 +82,9 @@ return {
             "name": "items",
             "plural": true,
             "selections": [
+              (v1/*: any*/),
+              (v2/*: any*/),
               (v3/*: any*/),
-              (v4/*: any*/),
-              (v5/*: any*/),
               {
                 "args": null,
                 "kind": "FragmentSpread",
@@ -118,20 +102,20 @@ return {
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": (v0/*: any*/),
+    "argumentDefinitions": [],
     "kind": "Operation",
     "name": "userIndexQuery",
     "selections": [
       {
         "alias": null,
-        "args": (v1/*: any*/),
+        "args": null,
         "concreteType": "User",
         "kind": "LinkedField",
-        "name": "user",
+        "name": "currentUser",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
-          (v3/*: any*/),
+          (v0/*: any*/),
+          (v1/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -140,9 +124,9 @@ return {
             "name": "items",
             "plural": true,
             "selections": [
-              (v3/*: any*/),
-              (v4/*: any*/),
-              (v5/*: any*/)
+              (v1/*: any*/),
+              (v2/*: any*/),
+              (v3/*: any*/)
             ],
             "storageKey": null
           }
@@ -152,16 +136,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "8718642e5590bcbb60265ec74c9a1a2e",
+    "cacheID": "3df7f36b668a1dc80b26763fd1d66d01",
     "id": null,
     "metadata": {},
     "name": "userIndexQuery",
     "operationKind": "query",
-    "text": "query userIndexQuery(\n  $id: ID!\n) {\n  user(id: $id) {\n    email\n    id\n    items {\n      id\n      name\n      point\n      ...ItemDelete_item\n    }\n  }\n}\n\nfragment ItemDelete_item on Item {\n  id\n}\n"
+    "text": "query userIndexQuery {\n  currentUser {\n    email\n    id\n    items {\n      id\n      name\n      point\n      ...ItemDelete_item\n    }\n  }\n}\n\nfragment ItemDelete_item on Item {\n  id\n}\n"
   }
 };
 })();
 
-(node as any).hash = "c317e4f5bd92141943f538cdb40ba051";
+(node as any).hash = "f74dc5c05c006a99b0a3973226f1c715";
 
 export default node;

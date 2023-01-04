@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { useRouter } from "next/router";
 import { graphql, useMutation, useFragment, QueryRenderer } from "react-relay";
 import { ItemUpdate_item$key } from "__generated__/ItemUpdate_item.graphql";
 
@@ -7,6 +8,7 @@ type Props = {
 };
 
 const ItemUpdate: React.FC<Props> = (props) => {
+  const router = useRouter();
   const item = useFragment(
     graphql`
       fragment ItemUpdate_item on Item {
@@ -47,7 +49,9 @@ const ItemUpdate: React.FC<Props> = (props) => {
             point: values.point,
           },
         },
-        onCompleted() {},
+        onCompleted(data) {
+          router.push("/user");
+        },
         onError(err: any) {
           console.log(err);
         },
