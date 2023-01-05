@@ -5,6 +5,7 @@ import Link from "next/link";
 import router from "next/router";
 import ItemDelete from "components/ItemDelete";
 import item from "pages/item";
+import Nav from "components/Nav";
 
 const UserIndexPage: NextPage = () => {
   const environment = initEnvironment({});
@@ -17,6 +18,7 @@ const UserIndexPage: NextPage = () => {
           currentUser {
             email
             id
+            point
             items {
               id
               name
@@ -27,29 +29,15 @@ const UserIndexPage: NextPage = () => {
         }
       `}
       render={({ error, props }: any) => {
+        console.log(error?.source);
         return (
           <div>
             <h1>マイページ</h1>
+            <Nav />
+            <h3>ユーザー情報</h3>
             <ul>
-              <li>
-                <Link href="/signup">ユーザー登録</Link>
-              </li>
-              <li>
-                <Link href="/signin">ログイン</Link>
-              </li>
-              <li>
-                <Link href="/signout">ログアウト</Link>
-              </li>
-              <li>
-                <Link href="/user">マイページ</Link>
-              </li>
-              <li>
-                <Link href="/item">商品一覧</Link>
-              </li>
-
-              <li>
-                <Link href="/order">売買履歴</Link>
-              </li>
+              <li>メールアドレス：{props?.currentUser.email}</li>
+              <li>残りポイント：{props?.currentUser.point}</li>
             </ul>
             <ul>
               <li>

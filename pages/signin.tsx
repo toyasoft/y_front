@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import { graphql, useMutation } from "react-relay";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
+import Nav from "components/Nav";
 
 const SigninPage: NextPage = () => {
   const router = useRouter();
@@ -46,6 +47,7 @@ const SigninPage: NextPage = () => {
   return (
     <div>
       <h1>ログイン</h1>
+      <Nav />
       <div>
         <form onSubmit={formik.handleSubmit}>
           <div>

@@ -2,6 +2,7 @@ import { graphql, useMutation } from "react-relay";
 import { NextPage } from "next";
 import { useFormik } from "formik";
 import { useRouter } from "next/router";
+import Nav from "components/Nav";
 
 const ItemNewPage: NextPage = () => {
   const router = useRouter();
@@ -47,6 +48,7 @@ const ItemNewPage: NextPage = () => {
   return (
     <div>
       <h1>商品登録</h1>
+      <Nav />
       <div>
         <form onSubmit={formik.handleSubmit}>
           <div>

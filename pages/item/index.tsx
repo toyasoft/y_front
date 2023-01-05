@@ -2,6 +2,7 @@ import { QueryRenderer, graphql, useLazyLoadQuery } from "react-relay";
 import { NextPage } from "next";
 import { initEnvironment } from "lib/RelayEnvironment";
 import OrderCreate from "components/OrderCreate";
+import Nav from "components/Nav";
 
 const ItemIndexPage: NextPage = () => {
   const environment = initEnvironment({});
@@ -31,6 +32,7 @@ const ItemIndexPage: NextPage = () => {
         return (
           <div>
             <h1>商品一覧</h1>
+            <Nav />
             <div>
               {props &&
                 props.items &&

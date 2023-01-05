@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<533d63ff42cf38a8d877379744d5a28a>>
+ * @generated SignedSource<<0f53537e51cf860e529fc64589a17e80>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -21,6 +21,7 @@ export type userIndexQuery$data = {
       readonly point: number;
       readonly " $fragmentSpreads": FragmentRefs<"ItemDelete_item">;
     }> | null;
+    readonly point: number;
   };
 };
 export type userIndexQuery = {
@@ -47,14 +48,14 @@ v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "name",
+  "name": "point",
   "storageKey": null
 },
 v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "point",
+  "name": "name",
   "storageKey": null
 };
 return {
@@ -74,6 +75,7 @@ return {
         "selections": [
           (v0/*: any*/),
           (v1/*: any*/),
+          (v2/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -83,8 +85,8 @@ return {
             "plural": true,
             "selections": [
               (v1/*: any*/),
-              (v2/*: any*/),
               (v3/*: any*/),
+              (v2/*: any*/),
               {
                 "args": null,
                 "kind": "FragmentSpread",
@@ -116,6 +118,7 @@ return {
         "selections": [
           (v0/*: any*/),
           (v1/*: any*/),
+          (v2/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -125,8 +128,8 @@ return {
             "plural": true,
             "selections": [
               (v1/*: any*/),
-              (v2/*: any*/),
-              (v3/*: any*/)
+              (v3/*: any*/),
+              (v2/*: any*/)
             ],
             "storageKey": null
           }
@@ -136,16 +139,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "3df7f36b668a1dc80b26763fd1d66d01",
+    "cacheID": "7ba38873624ce9df48985e8e34995ccd",
     "id": null,
     "metadata": {},
     "name": "userIndexQuery",
     "operationKind": "query",
-    "text": "query userIndexQuery {\n  currentUser {\n    email\n    id\n    items {\n      id\n      name\n      point\n      ...ItemDelete_item\n    }\n  }\n}\n\nfragment ItemDelete_item on Item {\n  id\n}\n"
+    "text": "query userIndexQuery {\n  currentUser {\n    email\n    id\n    point\n    items {\n      id\n      name\n      point\n      ...ItemDelete_item\n    }\n  }\n}\n\nfragment ItemDelete_item on Item {\n  id\n}\n"
   }
 };
 })();
 
-(node as any).hash = "f74dc5c05c006a99b0a3973226f1c715";
+(node as any).hash = "f6ce3cb99a698c322dcd85ed7dba3e4d";
 
 export default node;

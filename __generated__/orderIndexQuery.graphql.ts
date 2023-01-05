@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<c675e32044b7e44a812698187a7536ef>>
+ * @generated SignedSource<<86f28b0ccc4ad869ff765252d76e1a50>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,9 +13,10 @@ export type orderIndexQuery$variables = {};
 export type orderIndexQuery$data = {
   readonly orders: ReadonlyArray<{
     readonly buyer: string;
+    readonly createdAt: string;
     readonly id: string;
     readonly name: string;
-    readonly price: number;
+    readonly point: number;
     readonly seller: string;
   }> | null;
 };
@@ -52,7 +53,7 @@ var v0 = [
         "alias": null,
         "args": null,
         "kind": "ScalarField",
-        "name": "price",
+        "name": "point",
         "storageKey": null
       },
       {
@@ -67,6 +68,13 @@ var v0 = [
         "args": null,
         "kind": "ScalarField",
         "name": "seller",
+        "storageKey": null
+      },
+      {
+        "alias": null,
+        "args": null,
+        "kind": "ScalarField",
+        "name": "createdAt",
         "storageKey": null
       }
     ],
@@ -91,16 +99,16 @@ return {
     "selections": (v0/*: any*/)
   },
   "params": {
-    "cacheID": "a3a0d1e498468ca1f51261c1951fa9ba",
+    "cacheID": "6574f8eb22ac7e4355724f0c06d47b2c",
     "id": null,
     "metadata": {},
     "name": "orderIndexQuery",
     "operationKind": "query",
-    "text": "query orderIndexQuery {\n  orders {\n    id\n    name\n    price\n    buyer\n    seller\n  }\n}\n"
+    "text": "query orderIndexQuery {\n  orders {\n    id\n    name\n    point\n    buyer\n    seller\n    createdAt\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "717d9755867ca65d6aa8b771e9912acc";
+(node as any).hash = "818c3dae2ae005bd0a99685176e9442f";
 
 export default node;

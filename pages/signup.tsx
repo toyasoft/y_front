@@ -1,10 +1,11 @@
+import Nav from "components/Nav";
 import { useFormik } from "formik";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { graphql, useMutation } from "react-relay";
 
 const SignupPage: NextPage = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [commit, isInFlight] = useMutation(graphql`
     mutation signupMutation($input: CreateUserInput!) {
       createUser(input: $input) {
@@ -32,7 +33,7 @@ const SignupPage: NextPage = () => {
         },
         onCompleted(data) {
           console.log(data);
-          router.push("/signin")
+          router.push("/signin");
         },
         onError(err: any) {
           console.log(err);
@@ -44,6 +45,7 @@ const SignupPage: NextPage = () => {
   return (
     <div>
       <h1>ユーザー登録</h1>
+      <Nav />
       <div>
         <form onSubmit={formik.handleSubmit}>
           <div>
