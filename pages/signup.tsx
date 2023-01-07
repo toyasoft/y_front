@@ -31,9 +31,11 @@ const SignupPage: NextPage = () => {
             password: values.password,
           },
         },
-        onCompleted(data) {
-          console.log(data);
-          router.push("/signin");
+        onCompleted(data, errors) {
+          console.log(errors);
+          if (!errors) {
+            router.push("/signin");
+          }
         },
         onError(err: any) {
           console.log(err);

@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<5e52f4917a8687b7bda52d6446fc17b5>>
+ * @generated SignedSource<<db305cbbdfa74533ff39b1f683db9088>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -20,9 +20,8 @@ export type itemIndexQuery$data = {
     readonly name: string;
     readonly point: number;
     readonly userId: string;
-    readonly username: string | null;
     readonly " $fragmentSpreads": FragmentRefs<"OrderCreate_item">;
-  }> | null;
+  }>;
 };
 export type itemIndexQuery = {
   response: itemIndexQuery$data;
@@ -55,17 +54,10 @@ v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "username",
-  "storageKey": null
-},
-v4 = {
-  "alias": null,
-  "args": null,
-  "kind": "ScalarField",
   "name": "userId",
   "storageKey": null
 },
-v5 = {
+v4 = {
   "alias": null,
   "args": null,
   "concreteType": "User",
@@ -96,7 +88,6 @@ return {
           (v1/*: any*/),
           (v2/*: any*/),
           (v3/*: any*/),
-          (v4/*: any*/),
           {
             "args": null,
             "kind": "FragmentSpread",
@@ -105,7 +96,7 @@ return {
         ],
         "storageKey": null
       },
-      (v5/*: any*/)
+      (v4/*: any*/)
     ],
     "type": "Query",
     "abstractKey": null
@@ -127,25 +118,24 @@ return {
           (v0/*: any*/),
           (v1/*: any*/),
           (v2/*: any*/),
-          (v3/*: any*/),
-          (v4/*: any*/)
+          (v3/*: any*/)
         ],
         "storageKey": null
       },
-      (v5/*: any*/)
+      (v4/*: any*/)
     ]
   },
   "params": {
-    "cacheID": "d3aa23811fd2944b347a1813d0ef437e",
+    "cacheID": "d50cf795e47bb89d3bf8943700e56e66",
     "id": null,
     "metadata": {},
     "name": "itemIndexQuery",
     "operationKind": "query",
-    "text": "query itemIndexQuery {\n  items {\n    id\n    name\n    point\n    username\n    userId\n    ...OrderCreate_item\n  }\n  currentUser {\n    id\n  }\n}\n\nfragment OrderCreate_item on Item {\n  id\n}\n"
+    "text": "query itemIndexQuery {\n  items {\n    id\n    name\n    point\n    userId\n    ...OrderCreate_item\n  }\n  currentUser {\n    id\n  }\n}\n\nfragment OrderCreate_item on Item {\n  id\n}\n"
   }
 };
 })();
 
-(node as any).hash = "b2e8d97920b44137a52a4a32bed62d04";
+(node as any).hash = "a332bb83d5495d72f8276a316ccbe110";
 
 export default node;

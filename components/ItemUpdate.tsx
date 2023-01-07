@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useRouter } from "next/router";
-import { graphql, useMutation, useFragment, QueryRenderer } from "react-relay";
+import { graphql, useFragment, useMutation } from "react-relay";
 import { ItemUpdate_item$key } from "__generated__/ItemUpdate_item.graphql";
 
 type Props = {
@@ -27,7 +27,6 @@ const ItemUpdate: React.FC<Props> = (props) => {
           id
           name
           point
-          username
         }
       }
     }

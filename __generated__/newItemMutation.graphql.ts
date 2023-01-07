@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d5e834b7c57e12d9f13fd36c7f7d7edf>>
+ * @generated SignedSource<<960c54cbb3f4120d11c6c90e13b3258e>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,6 +10,7 @@
 
 import { ConcreteRequest, Mutation } from 'relay-runtime';
 export type CreateItemInput = {
+  clientMutationId?: string | null;
   name: string;
   point: number;
 };
@@ -22,9 +23,8 @@ export type newItemMutation$data = {
       readonly id: string;
       readonly name: string;
       readonly point: number;
-      readonly username: string | null;
     };
-  };
+  } | null;
 };
 export type newItemMutation = {
   response: newItemMutation$data;
@@ -82,13 +82,6 @@ v1 = [
             "kind": "ScalarField",
             "name": "point",
             "storageKey": null
-          },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "username",
-            "storageKey": null
           }
         ],
         "storageKey": null
@@ -115,16 +108,16 @@ return {
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "fd65a5d6eb304383c7db9839bb3f2e0d",
+    "cacheID": "132438c965e7d04a1818523871cd88c3",
     "id": null,
     "metadata": {},
     "name": "newItemMutation",
     "operationKind": "mutation",
-    "text": "mutation newItemMutation(\n  $input: CreateItemInput!\n) {\n  createItem(input: $input) {\n    item {\n      id\n      name\n      point\n      username\n    }\n  }\n}\n"
+    "text": "mutation newItemMutation(\n  $input: CreateItemInput!\n) {\n  createItem(input: $input) {\n    item {\n      id\n      name\n      point\n    }\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "934484c8c32180a01a8698d63a993e95";
+(node as any).hash = "3408813cfb1b0a47811ff5f6d9b5efbb";
 
 export default node;

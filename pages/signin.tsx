@@ -1,9 +1,9 @@
-import { useFormik } from "formik";
-import { NextPage } from "next";
-import { graphql, useMutation } from "react-relay";
-import Cookies from "js-cookie";
-import { useRouter } from "next/router";
 import Nav from "components/Nav";
+import { useFormik } from "formik";
+import Cookies from "js-cookie";
+import { NextPage } from "next";
+import { useRouter } from "next/router";
+import { graphql, useMutation } from "react-relay";
 
 const SigninPage: NextPage = () => {
   const router = useRouter();
@@ -33,7 +33,8 @@ const SigninPage: NextPage = () => {
             password: values.password,
           },
         },
-        onCompleted(data) {
+        onCompleted(data, errors) {
+          console.log(data);
           Cookies.set("userToken", data.signin.userToken);
           router.push("/user");
         },

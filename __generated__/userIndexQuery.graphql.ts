@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<0f53537e51cf860e529fc64589a17e80>>
+ * @generated SignedSource<<72b095a6128caf3fd27bdf8a69824489>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,15 +13,15 @@ import { FragmentRefs } from "relay-runtime";
 export type userIndexQuery$variables = {};
 export type userIndexQuery$data = {
   readonly currentUser: {
-    readonly email: string;
+    readonly email: string | null;
     readonly id: string;
     readonly items: ReadonlyArray<{
       readonly id: string;
       readonly name: string;
       readonly point: number;
       readonly " $fragmentSpreads": FragmentRefs<"ItemDelete_item">;
-    }> | null;
-    readonly point: number;
+    }>;
+    readonly point: number | null;
   };
 };
 export type userIndexQuery = {

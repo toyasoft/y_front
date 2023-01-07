@@ -1,8 +1,8 @@
-import { QueryRenderer, graphql, useLazyLoadQuery } from "react-relay";
-import { NextPage } from "next";
-import { initEnvironment } from "lib/RelayEnvironment";
-import OrderCreate from "components/OrderCreate";
 import Nav from "components/Nav";
+import OrderCreate from "components/OrderCreate";
+import { initEnvironment } from "lib/RelayEnvironment";
+import { NextPage } from "next";
+import { graphql, QueryRenderer } from "react-relay";
 
 const ItemIndexPage: NextPage = () => {
   const environment = initEnvironment({});
@@ -18,7 +18,6 @@ const ItemIndexPage: NextPage = () => {
             id
             name
             point
-            username
             userId
             ...OrderCreate_item
           }

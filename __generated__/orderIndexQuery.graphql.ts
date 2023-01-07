@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<86f28b0ccc4ad869ff765252d76e1a50>>
+ * @generated SignedSource<<1cd3c140a7415d041c1bba4edec25515>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,12 +13,12 @@ export type orderIndexQuery$variables = {};
 export type orderIndexQuery$data = {
   readonly orders: ReadonlyArray<{
     readonly buyer: string;
-    readonly createdAt: string;
+    readonly createdAt: any;
     readonly id: string;
     readonly name: string;
     readonly point: number;
     readonly seller: string;
-  }> | null;
+  }>;
 };
 export type orderIndexQuery = {
   response: orderIndexQuery$data;

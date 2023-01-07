@@ -1,8 +1,8 @@
-import { graphql, useMutation } from "react-relay";
-import { NextPage } from "next";
-import { useFormik } from "formik";
-import { useRouter } from "next/router";
 import Nav from "components/Nav";
+import { useFormik } from "formik";
+import { NextPage } from "next";
+import { useRouter } from "next/router";
+import { graphql, useMutation } from "react-relay";
 
 const ItemNewPage: NextPage = () => {
   const router = useRouter();
@@ -13,7 +13,6 @@ const ItemNewPage: NextPage = () => {
           id
           name
           point
-          username
         }
       }
     }

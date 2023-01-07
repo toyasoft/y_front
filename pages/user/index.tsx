@@ -1,11 +1,9 @@
-import { QueryRenderer, graphql, useLazyLoadQuery } from "react-relay";
+import ItemDelete from "components/ItemDelete";
+import Nav from "components/Nav";
 import { initEnvironment } from "lib/RelayEnvironment";
 import { NextPage } from "next";
 import Link from "next/link";
-import router from "next/router";
-import ItemDelete from "components/ItemDelete";
-import item from "pages/item";
-import Nav from "components/Nav";
+import { graphql, QueryRenderer } from "react-relay";
 
 const UserIndexPage: NextPage = () => {
   const environment = initEnvironment({});
@@ -29,7 +27,7 @@ const UserIndexPage: NextPage = () => {
         }
       `}
       render={({ error, props }: any) => {
-        console.log(error?.source);
+        console.log(props);
         return (
           <div>
             <h1>マイページ</h1>

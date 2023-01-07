@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<ca32b844900a3ab5c9c0768428935a14>>
+ * @generated SignedSource<<e6b03f9e886b69d14766aff8fdcc3d80>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,6 +10,7 @@
 
 import { ConcreteRequest, Mutation } from 'relay-runtime';
 export type CreateOrderInput = {
+  clientMutationId?: string | null;
   itemId: string;
 };
 export type OrderCreateMutation$variables = {
@@ -20,7 +21,7 @@ export type OrderCreateMutation$data = {
     readonly order: {
       readonly id: string;
     };
-  };
+  } | null;
 };
 export type OrderCreateMutation = {
   response: OrderCreateMutation$data;

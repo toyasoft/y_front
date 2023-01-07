@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<4fa2186dcfb7096757ca0186af2da57e>>
+ * @generated SignedSource<<87b91d12bddd391e91791574f5e5ca02>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,9 +10,9 @@
 
 import { ConcreteRequest, Mutation } from 'relay-runtime';
 export type CreateUserInput = {
+  clientMutationId?: string | null;
   email: string;
-  name?: string | null;
-  password: string;
+  password?: string | null;
 };
 export type signupMutation$variables = {
   input: CreateUserInput;
@@ -20,9 +20,9 @@ export type signupMutation$variables = {
 export type signupMutation$data = {
   readonly createUser: {
     readonly user: {
-      readonly email: string;
+      readonly email: string | null;
     };
-  };
+  } | null;
 };
 export type signupMutation = {
   response: signupMutation$data;
