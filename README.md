@@ -1,6 +1,8 @@
 # Next.js & Relay
 
-Next.jsとRelayAPI検証用アプリケーション。
+Next.js と RelayAPI 検証用アプリケーション。  
+fetchGraphQL.ts ファイルの api にてエンドポイントを変更。  
+schema.graphql はバックエンドから取得。
 
 ### 起動コマンド
 
