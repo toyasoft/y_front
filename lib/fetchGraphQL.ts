@@ -2,9 +2,10 @@ import Cookies from "js-cookie";
 
 export default async function fetchGraphQL(text: any, variables: any) {
   let response;
+  const api = "http://localhost:3000/graphql";
 
   try {
-    response = await fetch(`http://localhost:3000/graphql`, {
+    response = await fetch(api, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
