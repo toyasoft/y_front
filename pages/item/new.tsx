@@ -62,7 +62,7 @@ const ItemNewPage: NextPage = () => {
           <div>
             <label>価格</label>
             <input
-              type="text"
+              type="number"
               name="point"
               onChange={formik.handleChange}
               value={formik.values.point}
